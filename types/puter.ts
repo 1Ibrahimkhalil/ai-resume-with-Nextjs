@@ -44,8 +44,11 @@ interface PuterChatOptions {
     function: {
       name: string;
       description: string;
-      // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-      parameters: { type: string; properties: {} };
+
+      parameters: {
+        type: string;
+        properties: Record<string, unknown>;
+      };
     }[];
   };
 }
@@ -54,13 +57,13 @@ interface AIResponse {
   index: number;
   message: {
     role: string;
-    content: string | never[];
+    content: string | { type: string; text?: string }[];
     refusal: null | string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    annotations: any[];
+
+    annotations: unknown[];
   };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  logprobs: null | any;
+
+  logprobs: null | unknown;
   finish_reason: string;
   usage: {
     type: string;

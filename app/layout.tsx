@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
 import PuterProvider from "@/components/providers/PuterProvider";
 
 export const metadata: Metadata = {
@@ -20,7 +19,6 @@ export default function RootLayout({
       <body>
         <PuterProvider>
           <main className="min-h-screen bg-[url('/images/bg-main.svg')] bg-cover">
-            <Navbar />
             {children}
           </main>
         </PuterProvider>

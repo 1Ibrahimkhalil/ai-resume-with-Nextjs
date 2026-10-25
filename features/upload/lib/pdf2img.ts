@@ -9,6 +9,7 @@ export interface PdfConversionResult {
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
 
+
 export async function convertPdfToImage(
   file: File,
 ): Promise<PdfConversionResult> {

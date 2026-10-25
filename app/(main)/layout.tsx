@@ -1,4 +1,5 @@
 import Navbar from "@/components/layout/Navbar";
+import { Suspense } from "react";
 
 export default function MainLayout({
   children,
@@ -7,7 +8,9 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <Navbar />
+      <Suspense fallback={null}>
+        <Navbar />
+      </Suspense>
       {children}
     </>
   );

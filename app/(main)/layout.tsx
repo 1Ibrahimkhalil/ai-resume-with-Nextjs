@@ -1,5 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
+import AuthGuard from "@/features/auth/components/AuthGuard";
 import { Suspense } from "react";
+import Loading from "./loading";
 
 export default function MainLayout({
   children,
@@ -11,7 +13,14 @@ export default function MainLayout({
       <Suspense fallback={null}>
         <Navbar />
       </Suspense>
-      {children}
+
+      <Suspense
+        fallback={
+          <Loading />
+        }
+      >
+        <AuthGuard>{children}</AuthGuard>
+      </Suspense>
     </>
   );
 }
